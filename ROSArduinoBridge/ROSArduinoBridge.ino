@@ -62,8 +62,14 @@
    /* Encoders directly attached to Arduino board */
    #define ARDUINO_ENC_COUNTER
 
-   /* L298 Motor driver*/
+   /* Using the "Encoder" arduino library for directly attached to Arduino board encoders */
+   //#define ENCODER_LIBRARY
+
+   /* L298 Motor driver */
    #define L298_MOTOR_DRIVER
+   
+   /* BTS7960 Motor drivers */
+   //#define BTS7960_MOTOR_DRIVER
 #endif
 
 //#define USE_SERVOS  // Enable use of PWM servos as defined in servos.h

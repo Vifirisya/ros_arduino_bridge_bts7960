@@ -68,6 +68,25 @@
       return;
     }
   }
+#elif defined(ENCODER_LIBRARY)
+  /* Include the Encoder library */
+  #include <Encoder.h>
+
+  /* Create encoder objects */
+  Encoder enc_LEFT(LEFT_ENC_PIN_A, LEFT_ENC_PIN_B);
+  Encoder enc_RIGHT(RIGHT_ENC_PIN_A, RIGHT_ENC_PIN_B);
+  
+  /* Wrap the encoder reading function */
+  long readEncoder(int i) {
+    if (i == LEFT) return enc_LEFT.read();
+    else return enc_RIGHT.read();
+  }
+
+  /* Recreating encoder objects to reset their values */
+  void resetEncoder(int i) {
+    if (i == LEFT) { enc_LEFT = Encoder(LEFT_ENC_PIN_A, LEFT_ENC_PIN_B) }
+    else { enc_RIGHT = Encoder(RIGHT_ENC_PIN_A, RIGHT_ENC_PIN_B); }
+  }
 #else
   #error A encoder driver must be selected!
 #endif
